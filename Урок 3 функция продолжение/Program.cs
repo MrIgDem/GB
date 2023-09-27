@@ -56,30 +56,63 @@ Console.Clear();
 // string res = Method4(10, "asdf" );
 // Console.WriteLine(res);
 
-string text = "— Я думаю, — сказал князь, улыбаясь, — что, "
-+ " ежели бы вас послали вместо нашего милого Винценгероде,"
-+ "вы бы взяли приступом согласие "
-+ "прусского короля. Вы так красноречивы. "
-+ "Вы дадите мне чаю? ";
-Console.WriteLine(text);
+// string text = "— Я думаю, — сказал князь, улыбаясь, — что, "
+// + " ежели бы вас послали вместо нашего милого Винценгероде,"
+// + "вы бы взяли приступом согласие "
+// + "прусского короля. Вы так красноречивы. "
+// + "Вы дадите мне чаю? ";
+// Console.WriteLine(text);
 
-string Replace(string text, char oldSym, char newSym)
+// string Replace(string text, char oldSym, char newSym)
+// {
+//     string result = String.Empty;
+//     int length = text.Length;
+
+//     for (int i = 0; i < length; i++)
+//     {
+//         if(text[i] == oldSym) result = result + $"{newSym}";
+//         else result = result + $"{text[i]}";
+//     }
+
+//     return result;
+
+// } 
+
+// string NewText = Replace(text, ' ', '|');
+// Console.WriteLine(NewText);
+
+// NewText = Replace(text, ' ', '|');
+// Console.WriteLine(NewText);
+
+int[] arr = {1, 5, 4, 3, 2, 6, 7, 1, 1};
+
+void PrintArray(int[] array)
 {
-    string result = String.Empty;
-    int length = text.Length;
-
-    for (int i = 0; i < length; i++)
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
     {
-        if(text[i] == oldSym) result = result + $"{newSym}";
-        else result = result + $"{text[i]}";
+        Console.Write($"{array[i]} ");   
     }
+    Console.WriteLine();
+}
 
-    return result;
+void SelectionSort(int[] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int minPosition = i;
 
-} 
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if(array[j] < array[minPosition]) minPosition = j;
+        }
+        int temporary = array[i];
 
-string NewText = Replace(text, ' ', '|');
-Console.WriteLine(NewText);
+        array[i] = array[minPosition];
+        array[minPosition] = temporary;//1
+    }
+}
+PrintArray(arr);
+SelectionSort(arr);
 
-NewText = Replace(text, ' ', '|');
-Console.WriteLine(NewText);
+PrintArray(arr);
